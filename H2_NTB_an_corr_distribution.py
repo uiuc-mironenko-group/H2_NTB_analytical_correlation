@@ -1,5 +1,12 @@
 # Authors: Leung, L.; Mironenko, A. V.
 # June 18, 2024 version
+# References:
+# 1) Mironenko, A. V. "Analytical and Parameter-Free Hückel Theory 
+#    Made Possible for Symmetric Hx Clusters." The Journal of Physical Chemistry A 127.37 (2023): 7836-7843.
+# 2) Mironenko, A. V. "Self-Consistent Equations for Nonempirical 
+#    Tight Binding Theory." arXiv preprint arXiv:2204.04554v3 (2024).
+# 3) Leung, A. and Mironenko, A. V. "Analytical Correlation in the H2 Molecule 
+#    from the Independent Atom Ansatz." arXiv preprint arXiv:2405.15809 (2024).
 
 import numpy as np
 from scipy.linalg import eigh
@@ -65,7 +72,7 @@ def get_e_c(R,Z):
     abba = -0.5*get_abba(R,Z)
     CI_matrix = np.array([[e_BO, abba[0]],[abba[0], e_AO]])
     CI_eigenvalues, CI_eigenvectors = eigh(CI_matrix)
-    e_c = CI_eigenvalues[0]-e_BO   
+    e_c = CI_eigenvalues[0] - e_BO   
     return e_c
 
 def atomion(Z,R):
